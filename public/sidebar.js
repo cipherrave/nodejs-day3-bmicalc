@@ -1,13 +1,18 @@
-function openNav() {
-  document.getElementById("sidebar").style.width = "200px";
-  document.getElementById("main").style.marginLeft = "220px";
-  document.getElementById("openBtn").style.display = "none";
-}
+function toggleSideBar() {
+  if (document.getElementById("toggleSideBar").value == "CLOSED") {
+    document.getElementById("toggleSideBar").value = "OPEN";
+    document.getElementById("sidebar").style.width = "200px";
+    document.getElementById("main").style.marginLeft = "165px";
+    document.getElementById("titleBar").style.marginLeft = "165px";
 
-function closeNav() {
-  document.getElementById("sidebar").style.width = "0";
-  document.getElementById("main").style.marginLeft = "0";
-  document.getElementById("openBtn").style.display = "block";
+    document.getElementById("madeBy").style.display = "block";
+  } else {
+    document.getElementById("toggleSideBar").value = "CLOSED";
+    document.getElementById("sidebar").style.width = "35px";
+    document.getElementById("main").style.marginLeft = "0px";
+    document.getElementById("madeBy").style.display = "none";
+    document.getElementById("titleBar").style.marginLeft = "0px";
+  }
 }
 
 function goToCalculator() {

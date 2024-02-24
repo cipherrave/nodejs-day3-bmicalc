@@ -1,5 +1,5 @@
-const calculateBMI = document.getElementById("calculate");
-calculateBMI.addEventListener("click", function () {
+function calculateBMI() {
+  let email = document.querySelector("#email").value;
   let height = document.querySelector("#height").value;
   let weight = document.querySelector("#weight").value;
   if (height == "" || weight == "") {
@@ -54,4 +54,18 @@ calculateBMI.addEventListener("click", function () {
     document.getElementById("comment").innerHTML =
       "It appears that you’re in the obese category.<br>Prioritize your health by seeking professional guidance.<br><br>Obesity is associated with various health risks. <br><br>Consider a personalized plan to achieve a healthier weight.";
   }
-});
+
+  const resultView = document.getElementById("cardResult");
+  resultView.scrollIntoView(true);
+
+  //write to a json file for history
+  const today = new Date().toDateString();
+  let obj = {
+    date: today,
+    height: height,
+    weight: weight,
+    bmi: BMI,
+    email: email,
+  };
+  console.log(obj);
+}

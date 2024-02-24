@@ -3,25 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <link rel="stylesheet" href="style.css" />
-    <script src="bmiCalc.js" defer></script>
+    <script src="bmiCalc.js"></script>
     <script src="sidebar.js" defer></script>
-    <script src="dbReadWrite.js" defer></script>
 
     <title>BMI Calculator</title>
   </head>
   <body>
+    <div class="titleBar">
+      <h1 id="titleBar">BMI Calculator</h1>
+    </div>
     <div class="sidebar" id="sidebar">
       <div class="sidebarTop">
-        <img src="assets/icons/x.svg" alt="" onclick="closeNav()" />
-        <h1>BMIcalc.app</h1>
+        <img src="assets/icons/logo.svg" alt="" srcset="" />
+        <img
+          src="assets/icons/list.svg"
+          id="toggleSideBar"
+          onclick="toggleSideBar()"
+          style="cursor: pointer"
+        />
         <div
-          class="sidebarList"
-          style="
-            background-color: #ffffff8f;
-            box-shadow: 0px 0px 10px 0px #8a8a8a;
-          "
+          class="sidebarListActive"
           id="calculator"
           onclick="goToCalculator()"
         >
@@ -37,20 +39,11 @@
           <p>History</p>
         </div>
       </div>
-      <div class="madeBy">
+      <div class="madeBy" id="madeBy">
         <h5>made by cipherrave</h5>
       </div>
     </div>
     <div class="main" id="main">
-      <div class="titleBar">
-        <img
-          src="assets/icons/list.svg"
-          alt=""
-          onclick="openNav()"
-          id="openBtn"
-        />
-        <h1>BMI Calculator</h1>
-      </div>
       <div class="content" id="content">
         <div class="card">
           <div class="cardTitle">
@@ -65,7 +58,13 @@
             <p for="weight">Weight (kg)</p>
             <input type="number" id="weight" />
           </div>
-          <button id="calculate" onclick="saveBMI()">Calculate BMI</button>
+          <div class="input">
+            <p for="email">E-mail (optional)</p>
+            <input type="email" id="email" />
+          </div>
+          <button type="submit" id="calculate" onclick="calculateBMI()">
+            Calculate BMI
+          </button>
         </div>
 
         <div class="card" id="cardResult" style="display: none">
@@ -73,7 +72,7 @@
           <div class="result" id="result"></div>
           <h2 class="category" id="category"></h2>
           <p class="comment" id="comment"></p>
-          <button id="info">Read More</button>
+          <button id="info" onclick="goToInfo()">Read More</button>
         </div>
       </div>
     </div>

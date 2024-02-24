@@ -1,5 +1,5 @@
 function saveBMI() {
-  event.preventDefault();
+  let email = document.querySelector("#email").value;
   let height = document.querySelector("#height").value;
   let weight = document.querySelector("#weight").value;
 
@@ -10,8 +10,19 @@ function saveBMI() {
 
   //write to a json file for history
   const today = new Date().toDateString();
-  let obj = { date: today, height, weight, BMI };
+  let obj = {
+    date: today,
+    height: height,
+    weight: weight,
+    bmi: BMI,
+    email: email,
+  };
   console.log(obj);
+
+  fs.writeFile("db.json", jsonStor, (error) => {
+    if (error) throw error;
+    console.log("Data has been written to db.json");
+  });
 
   // read json file
 }
