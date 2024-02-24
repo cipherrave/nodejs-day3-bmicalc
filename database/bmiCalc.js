@@ -1,4 +1,5 @@
 function calculateBMI() {
+  event.preventDefault();
   let email = document.querySelector("#email").value;
   let height = document.querySelector("#height").value;
   let weight = document.querySelector("#weight").value;
@@ -60,12 +61,12 @@ function calculateBMI() {
 
   //write to a json file for history
   const today = new Date().toDateString();
-  let obj = {
+  let formElement = {
     date: today,
     height: height,
     weight: weight,
     bmi: BMI,
     email: email,
   };
-  console.log(obj);
+  console.log(formElement);
 }
