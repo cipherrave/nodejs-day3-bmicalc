@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="style.css" />
+    <script src="bmiCalc.js" defer></script>
+    <script src="sidebar.js" defer></script>
+    <script src="dbReadWrite.js" defer></script>
+
+    <title>BMI Calculator</title>
+  </head>
+  <body>
+    <div class="sidebar" id="sidebar">
+      <div class="sidebarTop">
+        <img src="assets/icons/x.svg" alt="" onclick="closeNav()" />
+        <h1>BMIcalc.app</h1>
+        <div
+          class="sidebarList"
+          style="
+            background-color: #ffffff8f;
+            box-shadow: 0px 0px 10px 0px #8a8a8a;
+          "
+          id="calculator"
+          onclick="goToCalculator()"
+        >
+          <img src="assets/icons/calculator.svg" alt="" />
+          <p>Calculator</p>
+        </div>
+        <div class="sidebarList" id="info" onclick="goToInfo()">
+          <img src="assets/icons/info-circle.svg" alt="" />
+          <p>Info</p>
+        </div>
+        <div class="sidebarList" id="history" onclick="goToHistory()">
+          <img src="assets/icons/clock-history.svg" alt="" />
+          <p>History</p>
+        </div>
+      </div>
+      <div class="madeBy">
+        <h5>made by cipherrave</h5>
+      </div>
+    </div>
+    <div class="main" id="main">
+      <div class="titleBar">
+        <img
+          src="assets/icons/list.svg"
+          alt=""
+          onclick="openNav()"
+          id="openBtn"
+        />
+        <h1>BMI Calculator</h1>
+      </div>
+      <div class="content" id="content">
+        <div class="card">
+          <div class="cardTitle">
+            <img src="assets/icons/calculator.svg" style="width: 25px" alt="" />
+            <h1>Calculator</h1>
+          </div>
+          <div class="input">
+            <p for="height">Height (cm)</p>
+            <input type="number" id="height" />
+          </div>
+          <div class="input">
+            <p for="weight">Weight (kg)</p>
+            <input type="number" id="weight" />
+          </div>
+          <button id="calculate" onclick="saveBMI()">Calculate BMI</button>
+        </div>
+
+        <div class="card" id="cardResult" style="display: none">
+          <h1>Your BMI is</h1>
+          <div class="result" id="result"></div>
+          <h2 class="category" id="category"></h2>
+          <p class="comment" id="comment"></p>
+          <button id="info">Read More</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
