@@ -10,7 +10,8 @@
 
 body {
   background: #ebebeb;
-  padding: 1pc;
+  padding: 0.5pc;
+  min-width: 600px;
 }
 
 h1 {
@@ -24,6 +25,43 @@ p {
 a {
   all: unset;
   cursor: pointer;
+}
+
+.titleBar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 1pc;
+  width: 95%;
+  height: 50px;
+  background: #ebebeb;
+  padding-left: 70px;
+}
+
+.titleBar > h1 {
+  transition: margin-left 0.5s;
+}
+
+.welcomeUser {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.welcomeUser > button {
+  all: unset;
+  width: 30px;
+  height: 10px;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .sidebar {
@@ -118,26 +156,6 @@ a {
   transition: margin-left 0.5s;
 }
 
-.titleBar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  display: flex;
-  flex-direction: row;
-  justify-content: start;
-  align-items: center;
-  flex-wrap: nowrap;
-  gap: 1pc;
-  width: 100%;
-  height: 50px;
-  background: #ebebeb;
-}
-
-.titleBar > h1 {
-  padding-left: 75px;
-  transition: margin-left 0.5s;
-}
-
 .content {
   display: flex;
   flex-direction: row;
@@ -157,10 +175,18 @@ a {
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   background: #e9e9e9;
-  padding: 1.5pc;
+  padding: 1pc;
   gap: 1pc;
   width: 100%;
   max-width: 500px;
+}
+
+.card > form {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  gap: 1pc;
 }
 
 .cardTitle {
@@ -176,6 +202,9 @@ a {
   width: 100%;
 }
 
+button {
+}
+
 .infoBox {
   display: flex;
   flex-direction: column;
@@ -189,47 +218,14 @@ a {
   border-radius: 5px;
 }
 
-.input > p {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: start;
-  margin-bottom: 10px;
-}
-
-.input input {
-  all: unset;
-  outline: none;
-  border: none;
-  border-radius: 5px;
-  background-color: #f5f5f5;
-  width: 100%;
-  height: fit-content;
-  text-align: center;
-  font-size: 28px;
-}
-
-button {
-  color: #fff;
-  background: #4f7df9;
-  font-size: 16px;
-  border-radius: 5px;
-  padding: 12px 0;
-  width: 100%;
-  outline: none;
-  border: none;
-  transition: background 0.2s ease;
-}
-
 button:hover {
   background: hsl(224, 100%, 50%);
 }
 
 #cardResult > #result {
-  font-size: 60px;
 }
 
-input[type="number"]::-webkit-inner-spin-button,
+table input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;

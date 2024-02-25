@@ -4,14 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <script src="bmiCalc.js"></script>
+    <script src="main.js" defer></script>
     <script src="sidebar.js" defer></script>
-
-    <title>BMI Calculator</title>
   </head>
   <body>
     <div class="titleBar">
       <h1 id="titleBar">BMI Calculator</h1>
+      <div class="welcomeUser" id="cardWelcome" style="display: none">
+        <p id="welcomeUser"></p>
+        <button type="button" onclick="logOut()">X</button>
+      </div>
     </div>
     <div class="sidebar" id="sidebar">
       <div class="sidebarTop">
@@ -44,37 +46,61 @@
       </div>
     </div>
     <div class="main" id="main">
-      <div class="content" id="content">
-        <form class="card">
+      <div class="content">
+        <div class="card" id="cardLogin">
+          <form class="input">
+            <p>Email</p>
+            <input type="email" id="email" required />
+            <p id="emailAlert" style="color: red; display: ">
+              Please fill in your email
+            </p>
+            <button type="button" onclick="emailProceed()">Proceed</button>
+          </form>
+        </div>
+        <div class="card" id="cardCalc" style="">
           <div class="cardTitle">
-            <img src="assets/icons/calculator.svg" style="width: 25px" alt="" />
-            <h1>Calculator</h1>
+            <img src="assets/icons/calculator.svg" alt="" />
+            <h2>Calculator</h2>
           </div>
-          <div class="input">
-            <p for="height">Height (cm)</p>
-            <input type="number" id="height" />
-          </div>
-          <div class="input">
+          <form class="input" id="form">
+            <input type="hidden" name="id" id="inputId" />
             <p for="weight">Weight (kg)</p>
-            <input type="number" id="weight" />
-          </div>
-          <div class="input">
-            <p for="email">E-mail (optional)</p>
-            <input type="email" id="email" />
-          </div>
-          <button type="submit" id="calculate" onclick="calculateBMI()">
-            Calculate BMI
-          </button>
-        </form>
-
-        <div class="card" id="cardResult" style="display: none">
-          <h1>Your BMI is</h1>
-          <div class="result" id="result"></div>
-          <h2 class="category" id="category"></h2>
-          <p class="comment" id="comment"></p>
-          <button id="info" onclick="goToInfo()">Read More</button>
+            <input type="number" placeholder="Weight" id="weight" required />
+            <p for="height">Height (cm)</p>
+            <input type="number" placeholder="Height" id="height" required />
+            <button type="button" onclick="calcBMI()">Calculate</button>
+            <button type="button" onclick="clearData()">Reset</button>
+          </form>
+        </div>
+        <div class="card" id="cardResult" style="">
+          <h2>Your BMI Is</h2>
+          <p id="resultBMI" style="font-size: 60px"></p>
+          <p id="resultCategory"></p>
+          <p id="resultComment"></p>
+        </div>
+        <div class="card" id="cardHistory" style="">
+          <img src="assets/icons/clock-history.svg" alt="" />
+          <h2>History</h2>
+          <table id="datatable">
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Year</th>
+                <th>Edit</th>
+                <th>Hapus</th>
+              </tr>
+            </thead>
+            <tbody id="table"></tbody>
+          </table>
         </div>
       </div>
     </div>
+    <script>
+      function clearData() {
+        document.getElementById("form").reset();
+      }
+    </script>
   </body>
 </html>

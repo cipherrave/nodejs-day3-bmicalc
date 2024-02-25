@@ -15,17 +15,12 @@ function toggleSideBar() {
   }
 }
 
+const url = "http://localhost:8080";
+
 function goToCalculator() {
-  const url = "http://localhost:8080";
   window.location.href = url;
 }
 
 function goToInfo() {
-  const url = "http://localhost:8080";
   window.location.href = url + "/info";
-}
-
-function goToHistory() {
-  const url = "http://localhost:8080";
-  window.location.href = url + "/history";
 }

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
     <script src="sidebar.js" defer></script>
-
+    <script src="bmiCalc.js"></script>
     <title>BMI Calculator</title>
   </head>
   <body>
@@ -46,31 +46,30 @@
     <div class="main" id="main">
       <div class="content">
         <div class="card">
+          <div class="input">
+            <input
+              type="email"
+              id="emailFind"
+              placeholder="Please enter your email"
+              required
+            />
+            <button onclick="readData()"></button>
+          </div>
           <h1>Your Data</h1>
-          <p>
-            Let’s dive into Body Mass Index (BMI) calculations and explore some
-            healthy habits for overall well-being.
-          </p>
-          Body Mass Index (BMI) Calculation: BMI is a measure of a person’s
-          leanness or corpulence based on their height and weight. It quantifies
-          tissue mass and is widely used to determine whether a person has a
-          healthy body weight for their height. You can calculate BMI using the
-          following formula: BMI = (Weight in kilograms) / (Height in meters)^2
-          Alternatively, for US units: BMI = (Weight in pounds) × 703 / (Height
-          in inches)^2 The resulting BMI value falls into different categories:
-          Underweight: BMI < 18.5 Normal weight: BMI 18.5 - 25 Overweight: BMI
-          25 - 30 Obese (Class I): BMI 30 - 35 Obese (Class II): BMI 35 - 40
-          Obese (Class III): BMI > 40 Remember that BMI has limitations and
-          doesn’t account for muscle mass, bone density, or other factors.
-          Consult a healthcare professional for a comprehensive assessmen
-        </div>
-
-        <div class="card">
-          <h1>Your BMI is</h1>
-          <div class="result" id="result"></div>
-          <p class="category" id="category"></p>
-          <p class="comment" id="comment"></p>
-          <button id="readMore">Read More</button>
+          <div>
+            <table>
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Weight</th>
+                  <th>Height</th>
+                  <th>BMI</th>
+                  <th>Delete</th>
+                </tr>
+              </thead>
+              <tbody id="historyTable"></tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
