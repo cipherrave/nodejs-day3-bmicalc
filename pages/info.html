@@ -9,35 +9,42 @@
     <title>BMI Calculator</title>
   </head>
   <body>
-    <div class="titleBar">
-      <h1 id="titleBar">BMI Calculator > Info</h1>
+    <div class="titleBar" id="titleBar">
+      <h1>BMI Calculator > Info</h1>
     </div>
     <div class="sidebar" id="sidebar">
       <div class="sidebarTop">
-        <img src="assets/icons/logo.svg" alt="" srcset="" />
-
+        <img src="assets/icons/logo.svg" alt="" />
         <img
           src="assets/icons/list.svg"
           id="toggleSideBar"
           onclick="toggleSideBar()"
           style="cursor: pointer"
         />
+        <div class="sidebarList" style="justify-content: space-between">
+          <div style="display: flex; flex-direction: row; gap: 1pc">
+            <p>👤</p>
+            <p
+              id="userName"
+              style="width: 100px; text-overflow: ellipsis; overflow: hidden"
+            >
+            </p>
+          </div>
+          <button
+            style="all: unset; display: none"
+            id="logoutX"
+            onclick="logout()"
+          >
+            ❌
+          </button>    
+        </div>
         <div class="sidebarList" id="calculator" onclick="goToCalculator()">
-          <img src="assets/icons/calculator.svg" alt="" />
+          <p>🔢</p>
           <p>Calculator</p>
         </div>
-        <div
-          class="sidebarList"
-          id="info"
-          style="background-color: #ffffff8f"
-          onclick="goToInfo()"
-        >
-          <img src="assets/icons/info-circle.svg" alt="" />
+        <div class="sidebarList" id="info" onclick="goToInfo()">
+          <p>📖</p>
           <p>Info</p>
-        </div>
-        <div class="sidebarList" id="history" onclick="goToHistory()">
-          <img src="assets/icons/clock-history.svg" alt="" />
-          <p>History</p>
         </div>
       </div>
       <div class="madeBy" id="madeBy">
@@ -46,121 +53,137 @@
     </div>
     <div class="main" id="main">
       <div class="content">
-        <div class="card">
-          <p>
-            Let’s dive into Body Mass Index (BMI) calculations and explore some
-            healthy habits for overall well-being.
-          </p>
-          <h1>Body Mass Index (BMI) Calculation:</h1>
-          <p>
-            BMI is a measure of a person’s leanness or corpulence based on their
-            height and weight. It quantifies tissue mass and is widely used to
-            determine whether a person has a healthy body weight for their
-            height.
-          </p>
-          <p>You can calculate BMI using the following formula:</p>
-          <div class="infoBox">
-            <img
-              src="/assets/pics/bmimetric.png"
-              style="width: 300px; align-self: center"
-            />
-          </div>
-          <p>Alternatively, for US units:</p>
-          <div class="infoBox">
-            <img
-              src="/assets/pics/bmiimperial.png"
-              style="width: 300px; align-self: center"
-            />
-          </div>
-
-          <p>The resulting BMI value falls into different categories:</p>
-
-          <div class="infoBox">
-            <p><b>Underweight:</b> BMI < 18.5</p>
-            <p><b>Normal weight:</b> BMI 18.5 - 25</p>
-            <p><b>Overweight:</b> BMI 25 - 30</p>
-            <p><b>Obese</b></p>
-            <li>(Class I) BMI 30 - 35</li>
-            <li>(Class II) BMI 35 - 40</li>
-            <li>(Class III): BMI > 40</li>
-          </div>
-
-          <p>
-            Remember that BMI has limitations and doesn’t account for muscle
-            mass, bone density, or other factors. Consult a healthcare
-            professional for a comprehensive assessment
-          </p>
-        </div>
-
-        <div class="card">
-          <h1>Healthy Habits for a Better Life:</h1>
-          <h1>Regular Exercise 🏃‍♂️🏃‍♀️🏋️🚵‍♀️</h1>
-          <p>
-            Engage in physical activity to boost physical health, reduce stress,
-            and improve stamina.
-          </p>
-          <h1>Balanced Diet 🍆🍎🥦🥬</h1>
-          <p>
-            Consume a variety of fruits, vegetables, whole grains, lean
-            proteins, and healthy fats.
-          </p>
-          <h1>Adequate Sleep 😴💤</h1>
-          <p>
-            Prioritize quality and constant sleep to rejuvenate both your mind
-            and body.
-          </p>
-          <h1>Hydration 💧💧</h1>
-          <p>
-            Proper hydration supports metabolism, skin health, and overall
-            vitality.
-          </p>
-          <h1>Limit Screen Time 💻📱⌛</h1>
-          <p>
-            Reduce daily screen time to prevent mental fatigue and promote
-            better sleep.
-          </p>
-          <h1>Mindfulness Practices 🧘🧘‍♀️📿</h1>
-          <p>
-            Practice meditation, deep breathing, or yoga to manage stress and
-            enhance emotional balance.
-          </p>
-          <h1>Social Connections 🙋‍♀️🙋‍♂️🤦</h1>
-          <p>
-            Foster relationships with friends and family for better mental
-            health.
-          </p>
-          <h1>Avoid Excessive Alcohol and Tobacco 🍶🍸🍷🍺📉</h1>
-          <p>
-            These habits can negatively affect both physical and mental health.
-          </p>
-          <h1>Learn New Skills ✨🏫📖</h1>
-          <p>
-            Engage in activities that challenge your mind and enhance cognitive
-            abilities.
-          </p>
-          <p>
-            Remember, small positive changes in daily habits accumulate over
-            time, leading to a happier, healthier you. Consistency is key! 🌟
-          </p>
-          <div class="infoBox">
-            <h1>Sources</h1>
+        <div class="divider">
+          <div class="card">
             <p>
-              <a href="https://blog.calm.com/blog/healthy-habits"
-                >> blog.calm.com</a
-              >
+              Let’s dive into Body Mass Index (BMI) calculations and explore
+              some healthy habits for overall well-being.
             </p>
+            <h1>Body Mass Index (BMI) Calculation:</h1>
             <p>
-              <a
-                href="https://www.medicalnewstoday.com/articles/these-7-healthy-lifestyle-habits-can-help-prevent-depression-new-study-finds"
-                >> medicalnewstoday.com</a
-              >
+              BMI is a measure of a person’s leanness or corpulence based on
+              their height and weight. It quantifies tissue mass and is widely
+              used to determine whether a person has a healthy body weight for
+              their height.
             </p>
+            <p>You can calculate BMI using the following formula:</p>
+            <div
+              class="infoBox"
+              style="
+                background-image: url(/assets/pics/bmimetric.png);
+                background-color: white;
+                background-size: contain;
+                background-position: center;
+                width: 80%;
+                height: 100px;
+                align-self: center;
+                background-repeat: no-repeat;
+              "
+            ></div>
+            <p>Alternatively, for US units:</p>
+            <div
+              class="infoBox"
+              style="
+                background-image: url(/assets/pics/bmiimperial.png);
+                background-size: contain;
+                background-color: white;
+                background-position: center;
+                width: 80%;
+                height: 100px;
+                align-self: center;
+                background-repeat: no-repeat;
+              "
+            ></div>
+            <p>The resulting BMI value falls into different categories:</p>
+            <div class="infoBox">
+              <p><b>Underweight:</b> BMI < 18.5</p>
+              <p><b>Normal weight:</b> BMI 18.5 - 25</p>
+              <p><b>Overweight:</b> BMI 25 - 30</p>
+              <p><b>Obese</b></p>
+              <li>(Class I) BMI 30 - 35</li>
+              <li>(Class II) BMI 35 - 40</li>
+              <li>(Class III): BMI > 40</li>
+            </div>
             <p>
-              <a
-                href="https://www.mentalhealth.org.uk/explore-mental-health/a-z-topics/diet-and-mental-health"
-                >> mentalhealth.org.uk</a
-              >
+              Remember that BMI has limitations and doesn’t account for muscle
+              mass, bone density, or other factors. Consult a healthcare
+              professional for a comprehensive assessment
             </p>
+          </div></div>
+          <div class="divider">
+            <div class="card">
+              <h1>Healthy Habits for a Better Life:</h1>
+              <h1>Regular Exercise 🏃‍♂️🏃‍♀️🏋️🚵‍♀️</h1>
+              <p>
+                Engage in physical activity to boost physical health, reduce
+                stress, and improve stamina.
+              </p>
+              <h1>Balanced Diet 🍆🍎🥦🥬</h1>
+              <p>
+                Consume a variety of fruits, vegetables, whole grains, lean
+                proteins, and healthy fats.
+              </p>
+              <h1>Adequate Sleep 😴💤</h1>
+              <p>
+                Prioritize quality and constant sleep to rejuvenate both your
+                mind and body.
+              </p>
+              <h1>Hydration 💧💧</h1>
+              <p>
+                Proper hydration supports metabolism, skin health, and overall
+                vitality.
+              </p>
+              <h1>Limit Screen Time 💻📱⌛</h1>
+              <p>
+                Reduce daily screen time to prevent mental fatigue and promote
+                better sleep.
+              </p>
+              <h1>Mindfulness Practices 🧘🧘‍♀️📿</h1>
+              <p>
+                Practice meditation, deep breathing, or yoga to manage stress
+                and enhance emotional balance.
+              </p>
+              <h1>Social Connections 🙋‍♀️🙋‍♂️🤦</h1>
+              <p>
+                Foster relationships with friends and family for better mental
+                health.
+              </p>
+              <h1>Avoid Excessive Alcohol and Tobacco 🍶🍸🍷🍺📉</h1>
+              <p>
+                These habits can negatively affect both physical and mental
+                health.
+              </p>
+              <h1>Learn New Skills ✨🏫📖</h1>
+              <p>
+                Engage in activities that challenge your mind and enhance
+                cognitive abilities.
+              </p>
+              <p>
+                Remember, small positive changes in daily habits accumulate over
+                time, leading to a happier, healthier you. Consistency is key!
+                🌟
+              </p>
+              <div class="infoBox">
+                <h1>Sources</h1>
+                <p>
+                  <a href="https://blog.calm.com/blog/healthy-habits"
+                    >> blog.calm.com</a
+                  >
+                </p>
+                <p>
+                  <a
+                    href="https://www.medicalnewstoday.com/articles/these-7-healthy-lifestyle-habits-can-help-prevent-depression-new-study-finds"
+                    >> medicalnewstoday.com</a
+                  >
+                </p>
+                <p>
+                  <a
+                    href="https://www.mentalhealth.org.uk/explore-mental-health/a-z-topics/diet-and-mental-health"
+                    >> mentalhealth.org.uk</a
+                  >
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>

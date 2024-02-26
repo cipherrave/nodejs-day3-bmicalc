@@ -1,10 +1,5 @@
 import express from "express";
-import {
-  errorPage,
-  historyPage,
-  homePage,
-  infoPage,
-} from "./controllers/pageController.js";
+import { errorPage, homePage, infoPage } from "./controllers/pageController.js";
 
 const app = express();
 
@@ -16,7 +11,6 @@ app.use(express.static("database"));
 
 app.get("/", homePage);
 app.get("/info", infoPage);
-app.get("/history", historyPage);
 app.get("*", errorPage);
 
 app.listen(port, () => {
